@@ -1,0 +1,31 @@
+npm init -y
+npm i express
+
+// probrar app.js
+node src/app.js
+
+// package.json
+type module
+......
+{
+  "name": "mern-crud-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module", // ocupar modulos de ecmascript 6 dentro de node
+
+.......
+
+npm i -D nodemon
+npm i morgan
+
+npm i mongoose
+npm i bcryptjs
+
+npm i jsonwebtoken
+
+npm i cookie-parser
+
+npm i zod // Validacion de datos desde node
+
+ Nodejs React Mongodb Login y CRUD (Aplicación FullStack) 
