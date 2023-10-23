@@ -4,5 +4,11 @@ npm install
 
 npm run dev
 
-npm install -D tailwindcss
-npx tailwindcss init
+// instalar tailwindcss
+https://tailwindcss.com/docs/guides/vite
+
+npm install react-router-dom
+
+npm install react-hook-form
+
+npm i axios
