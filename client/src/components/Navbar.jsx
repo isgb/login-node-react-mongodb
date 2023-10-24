@@ -21,7 +21,11 @@ function Navbar() {
                                 Welcome {user.username}
                             </li>
                             <li>
-                                <Link to='/add-task'>Add Task</Link>
+                                <Link to='/add-task' 
+                                    className='bg-indigo-500 px-4 py-1 rounded-sm'
+                                >
+                                    Add Task
+                                </Link>
                             </li>
                             <li>
                                 <Link to='/' onClick={() => {
@@ -32,10 +36,18 @@ function Navbar() {
                         :
                         <>
                             <li>
-                                <Link to='/login'>Login</Link>
+                                <Link to='/login'
+                                    className='bg-indigo-500 px-4 py-1 rounded-sm'
+                                >
+                                    Login
+                                </Link>
                             </li>
                             <li>
-                                <Link to='/register'>Register</Link>
+                                <Link to='/register' 
+                                    className='bg-indigo-500 px-4 py-1 rounded-sm'
+                                >
+                                    Register
+                                </Link>
                             </li>
                         </>
                 }
