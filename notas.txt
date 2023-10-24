@@ -31,4 +31,4 @@ npm i zod // Validacion de datos desde node
 npm i cors
 
  Nodejs React Mongodb Login y CRUD (Aplicación FullStack) 
-2:40:05 
+3:25:16
