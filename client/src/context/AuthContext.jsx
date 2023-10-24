@@ -17,6 +17,7 @@ export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [errors, setErrors] =useState([])
+    const [loading, setLoading] =useState(true)
 
     const signup = async (user) =>{
         try {
@@ -59,23 +60,31 @@ export const AuthProvider = ({children}) => {
         async function checklogin(){
             const cookies = Cookies.getItem('token');
             // console.log("isgb",cookies)
-            if(cookies){
+            if(!cookies){
+                setIsAuthenticated(false);
+                setLoading(false)
+                return setUser(null);
+            }
                 // console.log(cookies)
                 try {
                     const res = await verifyTokenRequest(cookies);
-                    console.log(res.data)
-                    if(!res.data) setIsAuthenticated(false)
-
-                    isAuthenticated(true)
+                    // console.log(res.data)
+                    if(!res.data){ 
+                        setIsAuthenticated(false)
+                        setLoading(false)
+                        return;
+                    }
+                    
+                    setIsAuthenticated(true)
                     setUser(res.data)
+                    setLoading(false)
                     
                 } catch (error) {
                     setIsAuthenticated(false)
                     setUser(false)
+                    setLoading(false)
                 }
-            }
         }
-
         checklogin()
     },[])
 
@@ -84,6 +93,7 @@ export const AuthProvider = ({children}) => {
             signup,
             signin,
             user,
+            loading,
             isAuthenticated,
             errors
         }}>
