@@ -25,7 +25,11 @@ export const register = async (req, res) => {
         const userSaved = await newUser.save();
         const token = await createAccessToken({ id : userSaved._id})
 
-        res.cookie('token', token)
+        res.cookie('token', token,{
+            sameSite : 'none',
+            secure: true,
+            httpOnly : false
+        })
         
         // res.json({
         //     message: "user created successfully"
@@ -108,6 +112,14 @@ export const profile = async (req, res) => {
         createdAt: userFound.createdAt,
         updateAt: userFound.updateAt,
     })
+}
+
+export const verify = async (req,res) => {
+    const {token} = req.cookies
+
+    if(!token){
+        return res.status(401).json({ message: "unauthorized" });
+    }
 }
 
 // export const login = (req,res) => {
